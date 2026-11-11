@@ -75,7 +75,7 @@ private enum class Page(val label:String){Home("Home"),Orders("My Orders"),Inven
   Text("☎  0741 167 612",Modifier.align(Alignment.CenterHorizontally).padding(10.dp),color=Navy,fontWeight=FontWeight.Bold)
  }
 }
-@Composable private fun Metric(label:String,value:String){Card(Modifier.weight(1f),colors=CardDefaults.cardColors(containerColor=Color.White)){Column(Modifier.padding(12.dp),horizontalAlignment=Alignment.CenterHorizontally){Text(value,fontSize=22.sp,color=Magenta,fontWeight=FontWeight.ExtraBold);Text(label,fontSize=10.sp,color=Navy)}}}
+@Composable private fun Metric(label:String,value:String){Card(Modifier.widthIn(min=90.dp),colors=CardDefaults.cardColors(containerColor=Color.White)){Column(Modifier.padding(12.dp),horizontalAlignment=Alignment.CenterHorizontally){Text(value,fontSize=22.sp,color=Magenta,fontWeight=FontWeight.ExtraBold);Text(label,fontSize=10.sp,color=Navy)}}}
 @Composable private fun OrdersScreen(data:List<OrderEntity>,add:()->Unit){
  var filter by remember{mutableStateOf("All")}
  Column(Modifier.fillMaxSize().padding(12.dp)){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf("All","Pending","Processing","Delivered").forEach{FilterChip(selected=filter==it,onClick={filter=it},label={Text(it,fontSize=10.sp)})}}
